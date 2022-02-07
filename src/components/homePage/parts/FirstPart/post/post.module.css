@@ -1,0 +1,35 @@
+.Post{
+    padding: 10px 0px 10px 0px;
+    margin-right: 10px;
+    width: 100%;
+    border-bottom: #373737 solid 1px;
+}
+.firstparagraph{
+    text-decoration: none;
+    font-family: "Times New Roman";
+    color: black;
+    font-size: 28px;
+    text-align: center;
+    font-weight: bold;
+}
+a:hover{
+    color: #7ba4bf;
+}
+.secondparagraph{
+    text-align: justify;
+    font-family: "Times New Roman";
+    color: #373737;
+    font-size: 18px;
+}
+
+.thirdparagraph{
+    font-family: "Times New Roman";
+    color: #373737;
+    font-size: 12px;
+}
+img{
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    height: auto;
+}

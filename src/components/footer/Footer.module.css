@@ -1,0 +1,10 @@
+.Footer {
+    width: 100%;
+    display: block;
+    background: black;
+    color: white;
+}
+.Footer p{
+    padding-top: 15px;
+    padding-left: 10px;
+}

@@ -1,0 +1,29 @@
+.Nav {
+    grid-area: Nav;
+    border-right: black solid 2px;
+}
+
+.Nav ul {
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.Nav li {
+    padding-right: 0px;
+    padding-top: 20px;
+    padding-left: 15px;
+    list-style-type: none;
+    padding-bottom: 20px;
+}
+
+.Nav li:hover {
+    border-bottom: black solid 2px;
+}
+
+.Nav li a {
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "Times New Roman";
+    color: black;
+}
