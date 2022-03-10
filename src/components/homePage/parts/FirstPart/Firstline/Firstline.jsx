@@ -1,14 +1,14 @@
 import React from "react";
 import s from './Firstline.module.css'
-import Post from "../post/post";
+import Post from "../../../../post/post";
 
-function Firstline(props) {
+const Firstline = React.memo((props) => {
     return (
         <div className={s.Firstline}>
             <Post posts={props.posts}/>
         </div>
 
     );
-}
+})
 
 export default Firstline;

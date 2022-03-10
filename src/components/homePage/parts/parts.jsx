@@ -2,10 +2,10 @@ import React from "react";
 import s from './parts.module.css'
 import FirstPart from "./FirstPart/Firstpart";
 
-function Parts(props) {
+const Parts = function(props) {
     return (
         <div className={s.parts}>
-            <FirstPart posts={props.posts}/>
+            <FirstPart props={props.props}/>
         </div>
     );
 }

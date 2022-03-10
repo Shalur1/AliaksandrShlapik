@@ -3,9 +3,7 @@ import s from './OtherCreatorsBlock.module.css'
 import {NavLink} from "react-router-dom";
 
 let OtherCreatorsBlock = (props) => {
-    debugger
     return (
-        <div>
             <div>{(props.props.creators.map(item =>
                 <div className={s.OtherCreators}>
                     <img
@@ -15,25 +13,19 @@ let OtherCreatorsBlock = (props) => {
                     <p className={s.p2}>{item.p2}</p>
                     <p className={s.p3}>{item.p3}</p>
                     <div>
-                        {(item.followed ? <button onClick={() => {
-                            props.UnFollow(item.id)
-                        }}>Unfollow</button> : <button onClick={() => {
-                            console.log(item.id)
-                            props.Follow(item.id)
-                        }}>Follow</button>)}
+                        {(item.followed ? <button disabled={props.props.isFetchingFollowed.some(id => id === item.id)}
+                                                  onClick={() => {
+                                                      props.UnFollow(item.id)
+                                                  }}>Unfollow</button>
+                            : <button disabled={props.props.isFetchingFollowed.some(id => id === item.id)}
+                                      onClick={() => {
+                                          props.Follow(item.id)
+                                      }}>Follow</button>)}
                     </div>
                 </div>))}
             </div>
-            <div>
-                <button onClick={() => {props.PageBack(props.props.currentPage)}}>back</button>
-                <p>{props.props.currentPage}</p>
-                <button onClick={() => {props.PageNext(props.props.currentPage) }
-                }>next</button>
-            </div>
-        </div>
     )
 }
-
 
 
 export default OtherCreatorsBlock;

@@ -5,15 +5,18 @@ import s from './Content_id1.module.css'
 import Comments from "./comments/Comments";
 import InputCommentsConteiner from "./inputComment/inputCommentsConteiner";
 
-function Main(props) {
+
+const Main = ((props) => {
+    debugger
     return (
         <main className={s.Main}>
             <Post/>
-            <OtherPosts posts={props.store.getState().homePage.posts}/>
+            <OtherPosts postsRecomended={props.store.getState().homePage.postsFirstLine}
+                        postsSvyazannue={props.store.getState().homePage.postsSecondLine}/>
             <InputCommentsConteiner store={props.store}/>
             <Comments comments={props.store.getState().contentPage.comments}/>
         </main>
     );
-}
+})
 
 export default Main;

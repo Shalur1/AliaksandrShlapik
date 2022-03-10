@@ -1,10 +1,6 @@
-import comments from "../components/Content/comments/Comments";
-
-let typeAddPost = 'ADD-COMMENT';
-let typeEditCommInput = 'EDIT-COMM-INPUT';
+let typeAddPost = 'content/ADD-COMMENT';
 
 let initialState = {
-    newCommText: '',
     comments: [{
         id: 1,
         src: 'https://sun9-57.userapi.com/impg/kALQdbWK48yKlSa5L2SQiW-Q6ZTl_hyJpoOhPA/UEWOGDj36Zs.jpg?size=827x827&quality=95&sign=61124a804b2600af6f9c9a46ef21f397&type=album',
@@ -20,22 +16,16 @@ let initialState = {
 
 const contentReducer = function (state = initialState, action) {
     if (action.type === typeAddPost) {
-        if (state.newCommText !== '') {
+        if (action.text !== '') {
             return {
-                newCommText: '',
+                ...state,
                 comments: [{
                     id: 3,
                     src: 'https://sun9-36.userapi.com/impg/ojxAQ7xUJzp4kkHJYAGuiAqTTmjLmOr1RNP4uQ/TSc8CcFPkPA.jpg?size=720x745&quality=95&sign=bd7406d1f17a7d5ae58de2bf3fe503d4&type=album',
                     p: 'Daniel',
-                    p1: state.newCommText
-                },
-                    ...state.comments]
+                    p1: action.text
+                }, ...state.comments]
             }
-        }
-    } else if (action.type === typeEditCommInput) {
-        return {
-            ...state,
-            newCommText: action.text,
         }
     } else {
         return {
@@ -44,16 +34,11 @@ const contentReducer = function (state = initialState, action) {
     }
 }
 
-export const addCommentActionCreator = function () {
+export const addComm = function (text) {
     return {
-        type: typeAddPost
+        type: typeAddPost, text: text
     }
 }
 
-export const editCommInputActionCreator = function (text) {
-    return {
-        type: typeEditCommInput, text: text
-    }
-}
 
 export default contentReducer;

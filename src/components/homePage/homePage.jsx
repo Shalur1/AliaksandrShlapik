@@ -1,11 +1,11 @@
 import React from "react";
-import s from'./homePage.module.css'
+import s from './homePage.module.css'
 import Parts from "./parts/parts";
 
-function HomePage(props) {
+const HomePage = function(props) {
     return (
         <div className={s.homePage}>
-            <Parts posts={props.posts}/>
+            <Parts props={props}/>
         </div>
     );
 }

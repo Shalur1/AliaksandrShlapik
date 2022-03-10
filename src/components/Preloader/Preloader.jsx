@@ -1,21 +1,10 @@
 import React from "react";
-import s from "./NavTop.module.css"
-import {NavLink} from "react-router-dom";
+import s from './Preloader.module.css'
 
-function NavTop() {
-    return (
-        <div className={s.NavTop}>
-            <NavLink to=''>Home</NavLink>
-            <NavLink to="/contentReducer">News</NavLink>
-            <a href="#">Sport</a>
-            <a href="#">Worklife</a>
-            <a href="#">Travel</a>
-            <a href="#">Future</a>
-            <a href="#">Culture</a>
-            <a href="#">Reel</a>
-            <NavLink to='/creators'>Creators</NavLink>
-        </div>
-    );
+let Preloader = function (props) {
+    return(
+        <img src={'https://i.gifer.com/PYh.gif'}/>
+    )
 }
 
-export default NavTop;
+export default Preloader

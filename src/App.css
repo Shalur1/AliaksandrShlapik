@@ -1,4 +1,9 @@
 .App-wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    vertical-align: baseline;
+    flex-direction: column;
+    max-width: 1300px;
     display: grid;
     grid-template-rows: 130px 60px 10fr;
     grid-template-areas:

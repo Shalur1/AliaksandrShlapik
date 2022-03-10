@@ -4,12 +4,12 @@ import Firstline from "./Firstline/Firstline";
 import Secondline from "./Secondline/Secondline";
 import Thirdline from "./Thirdline/Thirdline";
 
-function FirstPart(props) {
+const FirstPart = function (props) {
     return (
         <div className={s.Firstpart}>
-            <Firstline posts={props.posts}/>
-            <Secondline posts={props.posts}/>
-            <Thirdline posts={props.posts}/>
+            <Firstline posts={props.props.posts.postsFirstLine}/>
+            <Secondline posts={props.props.posts.postsSecondLine}/>
+            <Thirdline posts={props.props.posts.postsThirdLine}/>
         </div>
     );
 }

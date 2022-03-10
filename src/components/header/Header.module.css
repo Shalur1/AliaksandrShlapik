@@ -30,3 +30,15 @@
 .Header a{
     text-decoration: none;
 }
+.auth{
+    padding-bottom: 20px;
+    margin-left: 20px;
+    display: inline;
+}
+
+.gg{
+    display: inline;
+}
+.gg button{
+    margin-left: 10px;
+}

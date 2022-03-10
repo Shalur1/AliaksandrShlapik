@@ -1,7 +1,7 @@
 import React from "react";
 import s from './post.module.css'
 
-function Post(props) {
+let Post = React.memo((props) => {
     return (
         <article className={s.Post}>
             <h2>A record 4.5 million workers quit or changed jobs in November</h2>
@@ -50,6 +50,6 @@ function Post(props) {
                 ли впечатления от мощности M1.</p>
         </article>
     );
-}
+})
 
 export default Post;

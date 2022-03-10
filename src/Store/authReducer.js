@@ -1,42 +1,86 @@
+import {usersAPI} from "../API/API";
+import store from "./redux-store";
+
 let initialState = {
-    ProfileInfo: {},
-    isFetchin: true
+    messages: [],
+    data: {
+        id: null,
+        email: null,
+        login: null
+    },
+    isFetchin: false,
+    isAuth: false,
+    LoginFormErrorMessage: null
 }
 
+const typeSetUserData = 'auth/SET-USER-DATA'
+const typeSetIsFetching = 'auth/SET-IS-FETCHING'
+const typeSetError = 'auth/SET-ERROR'
 
-const typeSetProfileInfo = 'SET-PROFILE-INFO'
-const typeSetIsFetching = 'SET-IS-FETCHING'
-
-
-const ProfileReducer = function (state = initialState, action) {
-    if (action.type === typeSetProfileInfo){
-        return {
+const authReducer = function (state = initialState, action) {
+    if (action.type === typeSetUserData) {
+        if (action.data.login === undefined) {
+            return {
+                ...state,
+                data: action.data,
+                isAuth: false
+            }
+        } else return {
             ...state,
-            ProfileInfo: action.ProfileInfo
+            data: action.data,
+            isAuth: true
         }
-    }
-    else if (action.type === typeSetIsFetching){
+    } else if (action.type === typeSetIsFetching) {
         return {
             ...state,
             isFetchin: action.isFetching
         }
-    }
-    else return state
+    } else if (action.type === typeSetError) {
+        return {
+            ...state,
+            LoginFormError: action.tf,
+            LoginFormErrorMessage: action.errorMessege
+        }
+    } else return state
 }
 
 
-export const SetProfileInfo = function (ProfileInfo) {
-    debugger
-    console.log(ProfileInfo)
+export const SetUserData = function (data) {
     return {
-        type: typeSetProfileInfo, ProfileInfo
+        type: typeSetUserData, data
     }
 }
-
 export const SetIsFetching = function (isFetching) {
-    return{
+    return {
         type: typeSetIsFetching, isFetching
     }
 }
 
-export default ProfileReducer
+export const SetErrorLoginForm = function (errorMessege) {
+    return {
+        type: typeSetError, errorMessege
+    }
+}
+
+export const authThunk = async () => {
+    let response = await usersAPI.auth()
+    store.dispatch(SetUserData(response.data.data));
+}
+
+export const loginThunk = async (email, password) => {
+    let response = await usersAPI.login(email, password)
+    if (response.data.resultCode === 1) {
+        store.dispatch(SetErrorLoginForm(response.data.messages[0]))
+    } else {
+        await authThunk();
+        store.dispatch(SetErrorLoginForm(null))
+    }
+}
+
+
+export const logOutThunk = async () => {
+    await usersAPI.logOut()
+    await authThunk()
+}
+
+export default authReducer

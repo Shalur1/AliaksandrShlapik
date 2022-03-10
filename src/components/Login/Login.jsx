@@ -1,17 +1,31 @@
 import React from "react";
-import s from './Profile.module.css'
-import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import LoginReduxForm from "./LoginForm/LoginForm";
+import {GetProfileInfo, GetStatus, SetIsFetching, SetProfileInfo, UpdateStatus} from "../../Store/ProfileReducer";
+import {connect} from "react-redux";
+import {loginThunk} from "../../Store/authReducer";
 
-let Profile = function (props) {
-    debugger
-    return(
+
+let Login = function (props) {
+    return (
         <div>
-            <ProfileInfo props={props.props}/>
-            <div className={s.posts}>
-                <p>Posts</p>
-            </div>
+            <h1>Login</h1>
+            <LoginReduxForm loginThunk={props.loginThunk}
+                            LoginFormErrorMessage={props.LoginFormErrorMessage}
+            />
         </div>
     )
 }
 
-export default Profile;
+let mapStateToProps = function (state) {
+    return {
+        LoginFormErrorMessage: state.auth.LoginFormErrorMessage,
+    }
+}
+
+let mapDispatchToProps = {
+    loginThunk
+}
+
+const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(Login);
+
+export default LoginContainer;

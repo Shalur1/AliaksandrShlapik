@@ -1,15 +1,50 @@
-import React from "react";
-import s from './OtherCreators.module.css'
-import OtherCreatorsBlockConteiner from "./OtherCreatorsBlock/OtherCreatorsBlockConteiner";
+import React, {useEffect} from "react";
+import {FollowThunk, getCreators, unFollowThunk} from "../../../Store/CreatorsReducer";
+import Preloader from "../../Preloader/Preloader";
+import OtherCreatorsBlock from "./OtherCreatorsBlockComponent/OtherCreatorsBlock";
+import {connect} from "react-redux";
 
 
 function OtherCreators(props) {
-    debugger
+    useEffect(() => {
+        getCreators(props.pageSize, props.currentPage);
+    }, [])
+
+    function Follow(userID) {
+        props.FollowThunk(userID)
+    }
+
+    function UnFollow(userID) {
+        props.unFollowThunk(userID);
+    }
+
     return (
-        <div className={s.OtherCreators}>
-            <OtherCreatorsBlockConteiner store={props.store}/>
-        </div>
-    );
+        <>
+            {props.isFetchinCreators ? <Preloader/> : <OtherCreatorsBlock props={props}
+                                                                          Follow={Follow}
+                                                                          UnFollow={UnFollow}/>}
+        </>
+    )
 }
 
-export default OtherCreators;
+let mapStateToProps = (state) => {
+    return {
+        creators: state.Creators.creators,
+        pageSize: state.Creators.pageSize,
+        totalCreatorsCount: state.Creators.totalCreatorsCount,
+        currentPage: state.Creators.currentPage,
+        isFetchinCreators: state.Creators.isFetchinCreators,
+        isFetchingFollowed: state.Creators.isFetchingFollowed
+    }
+}
+
+let mapDispatchToProps = {
+    getCreators,
+    FollowThunk,
+    unFollowThunk,
+}
+
+
+const CreatorsContainer = connect(mapStateToProps, mapDispatchToProps)(OtherCreators);
+
+export default CreatorsContainer;
