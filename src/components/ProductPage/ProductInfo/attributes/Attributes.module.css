@@ -1,0 +1,37 @@
+.AttributeText{
+    display: flex;
+}
+
+.itemText{
+    background: white;
+    cursor: pointer;
+    display: flex;
+    margin: 6px;
+    border: black solid 1px;
+    height: 45px;
+    width: 63px;
+}
+
+.itemText p{
+    margin: auto;
+}
+
+.itemText:nth-child(1){
+    margin-left: 0;
+}
+
+.itemColor{
+    margin: 5px;
+    border: black solid 1px;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+}
+
+.itemColor:nth-child(1){
+    margin-left: 0;
+}
+
+.Attributes{
+    margin-bottom: 38px;
+}

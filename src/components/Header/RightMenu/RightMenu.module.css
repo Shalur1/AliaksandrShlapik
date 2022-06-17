@@ -1,0 +1,29 @@
+.RightMenu{
+    width: 250px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.RightMenu a{
+    text-decoration: none;
+    color: #1D1F22;
+}
+
+.Value{
+    position: absolute;
+    z-index:  100;
+    top: 20px;
+    margin-left: 10px;
+    width: 15px;
+    height: 15px;
+    border-radius: 60px;
+    background: #1D1F22;
+}
+
+.Value p{
+    font-size: 12px;
+    justify-content: center;
+    display: flex;
+    margin: 0;
+    color: #E5E5E5;
+}

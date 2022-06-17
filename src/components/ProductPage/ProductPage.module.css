@@ -1,0 +1,13 @@
+.Products {
+    display: flex;
+}
+
+.Img{
+    width: 60%;
+}
+
+
+.Info{
+    margin-left: 60px;
+    width: 40%;
+}

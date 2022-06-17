@@ -1,0 +1,30 @@
+.Product{
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 26%;
+    padding: 1.5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-decoration: none;
+}
+
+.Product img{
+    width: 100%;
+}
+
+.Product p{
+    margin-top: 24px;
+    margin-bottom: 0;
+    font-family: 'Raleway', serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 160%;
+    color: #1D1F22;
+}
+
+.Product:hover{
+    box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+}

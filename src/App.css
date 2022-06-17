@@ -1,22 +1,16 @@
 .App-wrapper {
-    margin-right: auto;
-    margin-left: auto;
-    vertical-align: baseline;
-    flex-direction: column;
-    max-width: 1300px;
-    display: grid;
-    grid-template-rows: 130px 60px 10fr;
-    grid-template-areas:
-  " Header"
-  'NavTop'
-  " Content";
-    justify-items: center;
-
+    min-width: 800px;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
-.app-wrapper-content{
-    grid-area: Content;
-    max-width: 1600px;
-    margin-left: auto;
-    margin-right: auto;
+.CategoryName{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 160%;
+    color: #1D1F22;
+    margin-bottom: 87.6px;
 }
+

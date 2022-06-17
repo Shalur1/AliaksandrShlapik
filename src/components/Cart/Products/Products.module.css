@@ -1,0 +1,50 @@
+.Product{
+    border-bottom: 2px solid #E5E5E5;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.IMG{
+    width: 250px;
+    display: flex;
+}
+
+.IMG img{
+    margin-bottom: 24px;
+    width:75%;
+}
+
+.Plus{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 25%;
+    margin-bottom: 24px;
+    /*margin-right: 20px;*/
+}
+
+.Plus div {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border: black solid 1px;
+}
+
+
+.Plus div:nth-child(2){
+    cursor: auto;
+    border: none;
+}
+
+.Name{
+    margin-bottom: 5px;
+    font-family: 'Roboto Condensed';
+    font-weight: 550;
+    font-size: 15px;
+    line-height: 18px;
+}
